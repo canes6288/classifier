@@ -10,19 +10,9 @@ class PredictionsController < ApplicationController
   # GET /predictions/1
   # GET /predictions/1.json
   def show
-    # what param or code do i need to use to get the numbers the user entered in for predictions
-    prediction_weight = Prediction.find(params[:id]).weight
-    prediction_height = Prediction.find(params[:id]).height
-
-    @posterior_male_height = Classifier.posterior_height(prediction_height, "male")
-    @posterior_male_weight = Classifier.posterior_weight(prediction_weight, "male")
-    @posterior_female_height = Classifier.posterior_height(prediction_height, "female")
-    @posterior_female_weight = Classifier.posterior_weight(prediction_weight, "female")
-
-    @female_product = @posterior_female_weight * @posterior_female_height
-    @male_product = @posterior_male_weight * @posterior_male_height
-
-    @predicted_gender = @female_product > @male_product ? "PREDICTED TO BE FEMALE" : "PREDICTED TO BE MALE"
+    @prediction = Prediction.find(params[:id])
+    @male_classifier = @prediction.male_classifier
+    @female_classifier = @prediction.female_classifier
   end
 
   # GET /predictions/new

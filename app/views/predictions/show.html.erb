@@ -2,41 +2,51 @@
 
 <p>
   <strong>Posterior Male Height Score:</strong>
-  <%= @posterior_male_height %>
+  <%= @male_classifier.posterior_height %>
 </p>
 
 <p>
   <strong>Posterior Male Weight Score:</strong>
-  <%= @posterior_male_weight %>
+  <%= @male_classifier.posterior_weight %>
 </p>
 
 <p>
   <strong>Posterior Female Height Score:</strong>
-  <%= @posterior_female_height %>
+  <%= @female_classifier.posterior_height %>
 </p>
 
 <p>
   <strong>Posterior Female Weight Score:</strong>
-  <%= @posterior_female_weight %>
+  <%= @female_classifier.posterior_weight %>
 </p>
 <br>
 <br>
 
 <p>
-  <strong>MALE TOTAL SCORE:</strong>
-  <%= @male_product %>
+  <strong>Female Posterior Score:</strong>
+  <%= @female_classifier.score %>
 </p>
 
 <p>
-  <strong>FEMALE TOTAL SCORE:</strong>
-  <%= @female_product %>
+  <strong>Male Posterior Score:</strong>
+  <%= @male_classifier.score %>
 </p>
 <br>
 <br>
+<strong>VERDICT: PREDICTED TO BE A
+  <% if @prediction.male? %>
+    MALE
+  <% elsif @prediction.female? %>
+    FEMALE
+  <% else %>
+    NO PREDICTION FOUND
+  <% end %>
+</strong>
+<br>
+<br>
 
-<strong>VERDICT: <%= @predicted_gender %></strong>
-<br>
-<br>
+
+
 
 
 
