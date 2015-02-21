@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @respondent.gender %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @respondent.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @respondent.weight %>
+</p>
+
+<%= link_to 'Edit', edit_respondent_path(@respondent) %> |
+<%= link_to 'Back', respondents_path %>

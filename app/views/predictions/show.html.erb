@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Posterior Male Height Score:</strong>
+  <%= @posterior_male_height %>
+</p>
+
+<p>
+  <strong>Posterior Male Weight Score:</strong>
+  <%= @posterior_male_weight %>
+</p>
+
+<p>
+  <strong>Posterior Female Height Score:</strong>
+  <%= @posterior_female_height %>
+</p>
+
+<p>
+  <strong>Posterior Female Weight Score:</strong>
+  <%= @posterior_female_weight %>
+</p>
+<br>
+<br>
+
+<p>
+  <strong>MALE TOTAL SCORE:</strong>
+  <%= @male_product %>
+</p>
+
+<p>
+  <strong>FEMALE TOTAL SCORE:</strong>
+  <%= @female_product %>
+</p>
+<br>
+<br>
+
+<strong>VERDICT: <%= @predicted_gender %></strong>
+<br>
+<br>
+
+
+
+<%= link_to 'Edit', edit_prediction_path(@prediction) %> |
+<%= link_to 'Back', new_prediction_path %>
