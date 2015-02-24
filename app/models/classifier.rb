@@ -2,9 +2,9 @@ class Classifier
 
   attr_reader :prediction, :respondents
 
-  def initialize(prediction:, respondents:)
-    @prediction  = prediction
-    @respondents = respondents
+  def initialize(args)
+    @prediction  = args[:prediction]
+    @respondents = args[:respondents]
   end
 
 
