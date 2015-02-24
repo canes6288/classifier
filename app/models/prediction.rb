@@ -1,9 +1,20 @@
 class Prediction < ActiveRecord::Base
+  before_save :set_gender
 
-  validates :posterior_weight, presence: true,
+  validates :height, presence: true,
     numericality: { greater_than: 0 }
   validates :weight, presence: true,
     numericality: { greater_than: 0 }
+
+  def set_gender
+    if male?
+      self.gender = 'male'
+    elsif female?
+      self.gender = 'female'
+    else
+      self.gender = 'not determined'
+    end
+  end
 
   def male_classifier
     Classifier.new(prediction: self, respondents: Respondent.male_respondents)
@@ -13,12 +24,15 @@ class Prediction < ActiveRecord::Base
     Classifier.new(prediction: self, respondents: Respondent.female_respondents)
   end
 
+
+  private
+
   def male?
-    male_classifier.score > female_classifier.score
+    male_classifier.posterior_numerator > female_classifier.posterior_numerator
   end
 
   def female?
-    female_classifier.score > male_classifier.score
+    female_classifier.posterior_numerator > male_classifier.posterior_numerator
   end
 end
 

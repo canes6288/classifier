@@ -3,9 +3,10 @@ class Classifier
   attr_reader :prediction, :respondents
 
   def initialize(prediction:, respondents:)
-    @prediction = prediction
+    @prediction  = prediction
     @respondents = respondents
   end
+
 
   def posterior_height
     ((1/(Math.sqrt(2*Math::PI*variance_height)))*
@@ -13,12 +14,14 @@ class Classifier
   end
 
   def posterior_weight
-    ((1/(Math.sqrt(2*Math::PI*variance_weight)))*Math.exp((-1*((prediction.weight - mean_weight)**2))/(2*variance_weight))).to_f
+    ((1/(Math.sqrt(2*Math::PI*variance_weight)))*
+      Math.exp((-1*((prediction.weight - mean_weight)**2))/(2*variance_weight))).to_f
   end
 
-  def score
-    posterior_height * posterior_weight
+  def posterior_numerator
+    posterior_weight * posterior_height
   end
+
 
   private
 

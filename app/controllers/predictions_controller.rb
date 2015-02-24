@@ -11,8 +11,6 @@ class PredictionsController < ApplicationController
   # GET /predictions/1.json
   def show
     @prediction = Prediction.find(params[:id])
-    @male_classifier = @prediction.male_classifier
-    @female_classifier = @prediction.female_classifier
   end
 
   # GET /predictions/new

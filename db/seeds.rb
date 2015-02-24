@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Respondent.destroy_all
+Prediction.destroy_all
+
+Respondent.create(gender: 'male', height: 6, weight: 180)
+Respondent.create(gender: 'male', height: 6, weight: 180)
+Respondent.create(gender: 'female', height: 5, weight: 130)
+Respondent.create(gender: 'female', height: 5, weight: 150)
+Respondent.create(gender: 'female', height: 5, weight: 150)
+Respondent.create(gender: 'female', height: 6, weight: 100)
+Respondent.create(gender: 'male', height: 5, weight: 190)
+Respondent.create(gender: 'male', height: 5, weight: 165)

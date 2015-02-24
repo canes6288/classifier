@@ -1,46 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Posterior Male Height Score:</strong>
-  <%= @male_classifier.posterior_height %>
+  <strong>Male Posterior Height:</strong>
+  <%= @prediction.male_classifier.posterior_height %>
 </p>
 
 <p>
-  <strong>Posterior Male Weight Score:</strong>
-  <%= @male_classifier.posterior_weight %>
+  <strong>Male Posterior Weight:</strong>
+  <%= @prediction.male_classifier.posterior_weight %>
 </p>
 
 <p>
-  <strong>Posterior Female Height Score:</strong>
-  <%= @female_classifier.posterior_height %>
+  <strong>Female Posterior Height:</strong>
+  <%= @prediction.female_classifier.posterior_height %>
 </p>
 
 <p>
-  <strong>Posterior Female Weight Score:</strong>
-  <%= @female_classifier.posterior_weight %>
+  <strong>Female Posterior Weight:</strong>
+  <%= @prediction.female_classifier.posterior_weight %>
 </p>
 <br>
 <br>
 
 <p>
-  <strong>Female Posterior Score:</strong>
-  <%= @female_classifier.score %>
+  <strong>Male Posterior Numerator:</strong>
+  <%= @prediction.male_classifier.posterior_numerator %>
 </p>
 
 <p>
-  <strong>Male Posterior Score:</strong>
-  <%= @male_classifier.score %>
+  <strong>Female Posterior Numerator:</strong>
+  <%= @prediction.female_classifier.posterior_numerator %>
 </p>
 <br>
 <br>
 <strong>VERDICT: PREDICTED TO BE A
-  <% if @prediction.male? %>
-    MALE
-  <% elsif @prediction.female? %>
-    FEMALE
-  <% else %>
-    NO PREDICTION FOUND
-  <% end %>
+  <%= @prediction.gender.upcase %>
 </strong>
 <br>
 <br>

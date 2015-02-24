@@ -1,5 +1,12 @@
 class Respondent < ActiveRecord::Base
 
+  validates :gender, presence: true, inclusion: { in: %w(male female),
+    message: "%{value} is not a valid gender.  Please use 'male' or 'female'." }
+  validates :height, presence: true,
+    numericality: { greater_than: 0 }
+  validates :weight, presence: true,
+    numericality: { greater_than: 0 }
+
   scope :male_respondents, -> { where(gender: 'male') }
   scope :female_respondents, -> { where(gender: 'female') }
 
