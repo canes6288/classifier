@@ -55,6 +55,9 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.6)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.7)
       activesupport (>= 3.0.0, < 5)
@@ -70,6 +73,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     pg (0.18.1)
@@ -166,6 +170,7 @@ DEPENDENCIES
   capybara (= 2.2.0)
   coffee-rails (~> 4.0.0)
   factory_girl_rails (= 4.2.0)
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   pg
