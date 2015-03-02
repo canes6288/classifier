@@ -11,11 +11,11 @@ class Respondent < ActiveRecord::Base
   scope :female_respondents, -> { where(gender: 'female') }
 
   def self.heights
-    pluck(:height)
+    pluck(:height).compact
   end
 
   def self.weights
-    pluck(:weight)
+    pluck(:weight).compact
   end
 
   def self.sum_height
@@ -44,26 +44,6 @@ class Respondent < ActiveRecord::Base
     sum = weights.inject(0){|accum, i| accum + (i - mean_weight) ** 2 }
 
     sum / (weights.length - 1).to_f
-  end
-
-  def import_records
-    json_parsed = retrieve_json_file
-
-    respondents = json_parsed["people"]
-
-    respondents.each do |respondent|
-      entry = respondent["person"]
-
-      Respondent.create(
-        id: entry["id"],
-        height: entry["height"],
-        weight: entry["weight"],
-        gender: entry["gender"])
-    end
-  end
-
-  def retrieve_json_file(file_url)
-    JSON.parse(HTTParty.get "#{file_url}")
   end
 
 end
